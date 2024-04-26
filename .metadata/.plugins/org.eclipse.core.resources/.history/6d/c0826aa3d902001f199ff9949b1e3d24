@@ -1,8 +1,0 @@
-package beans;
-
-import jakarta.ejb.Local;
-
-@Local
-public interface ProductSessionBeanLocal {
-	
-}
