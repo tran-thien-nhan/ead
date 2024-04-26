@@ -1,0 +1,14 @@
+package beanClient;
+
+import java.util.*;
+
+import entities.Product;
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Named;
+
+@Named(value = "ProductManageBean")
+@SessionScoped
+public class ProductManageBean {
+
+	private List<Product> products;
+}

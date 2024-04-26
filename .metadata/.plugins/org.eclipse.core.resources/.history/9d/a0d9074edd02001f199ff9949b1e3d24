@@ -1,0 +1,10 @@
+package beanClient;
+
+import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Named;
+
+@Named(value = "ProductManageBean")
+@SessionScoped
+public class ProductManageBean {
+
+}
