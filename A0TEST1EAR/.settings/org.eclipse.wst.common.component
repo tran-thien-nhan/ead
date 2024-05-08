@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="A0TEST1EAR">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="A0TEST1WEB.war" deploy-path="/" handle="module:/resource/A0TEST1WEB/A0TEST1WEB">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="A0EADTEST1EJB.jar" deploy-path="/" handle="module:/resource/A0EADTEST1EJB/A0EADTEST1EJB">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

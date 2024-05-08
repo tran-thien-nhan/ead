@@ -3,7 +3,6 @@ package beanClient;
 import java.io.Serializable;
 import java.util.*;
 
-import beans.ProductSessionBean;
 import beans.ProductSessionBeanLocal;
 import entities.Product;
 import jakarta.annotation.PostConstruct;
