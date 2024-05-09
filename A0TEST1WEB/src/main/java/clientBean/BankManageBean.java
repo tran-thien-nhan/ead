@@ -77,7 +77,7 @@ public class BankManageBean implements Serializable {
 
 	public String checkRangeBalance() {
 	    if (maxBalance < minBalance) {
-	    	errorMessage = "min should not lower than max";
+	    	errorMessage = "max should not lower than min";
 	        return null;
 	    }
 
