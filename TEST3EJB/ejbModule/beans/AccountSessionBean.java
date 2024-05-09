@@ -48,4 +48,28 @@ public class AccountSessionBean extends AbstractFacade<Account> implements Accou
 		return super.findOne(username);
 	}
 
+	@Override
+	public void delete(Account account) {
+	    super.remove(super.findOne(account.getUsername()));
+	}
+
+	@Override
+	public void updateSelectedStatus(Account account) {
+	    Account existingAccount = findOne(account.getUsername());
+	    if (existingAccount != null) {
+	        if (existingAccount.isSelected() == true) {
+	        	existingAccount.setSelected(false);
+			}
+	        else {
+	        	existingAccount.setSelected(true);
+	        }
+	        update(existingAccount);
+	    }
+	}
+
+	@Override
+	public void deleteSelectedAccounts() {
+	    em.createQuery("DELETE FROM Account a WHERE a.isSelected = true").executeUpdate();
+	}
+
 }

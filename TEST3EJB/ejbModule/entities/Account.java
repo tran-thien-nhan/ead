@@ -25,18 +25,23 @@ public class Account {
 	@Column(name = "Age")
 	@NotNull(message = "age is required")
 	private int age;
+	
+	@Column(name = "Selected")
+	private boolean isSelected;
 
 	public Account() {
 	}
 
 	public Account(@NotNull(message = "username is required") String username,
 			@NotNull(message = "password is required") String password,
-			@NotNull(message = "fullname is required") String fullname, @NotNull(message = "age is required") int age) {
+			@NotNull(message = "fullname is required") String fullname, @NotNull(message = "age is required") int age,
+			boolean isSelected) {
 		super();
 		Username = username;
 		Password = password;
 		Fullname = fullname;
 		this.age = age;
+		this.isSelected = isSelected;
 	}
 
 	public String getUsername() {
@@ -70,4 +75,14 @@ public class Account {
 	public void setAge(int age) {
 		this.age = age;
 	}
+
+	public boolean isSelected() {
+		return isSelected;
+	}
+
+	public void setSelected(boolean isSelected) {
+		this.isSelected = isSelected;
+	}
+
+	
 }

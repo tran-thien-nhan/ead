@@ -14,40 +14,63 @@
 <h:body>
     <div class="container">
         <h1>ACCOUNT LIST</h1>
+        <h:form>
+            <h:commandButton class="btn btn-danger" value="Delete Selected" action="#{AccountManageBean.deleteSelectedAccounts}" />
+        </h:form>
         <f:view>
-            <h:dataTable class="table" value="#{AccountManageBean.accounts}" var="item">
+            <h:panelGroup rendered="#{not empty AccountManageBean.errorMessage}">
+                <div class="alert alert-danger">
+                    <strong>Danger!</strong> <h:outputText class="mx-2" value="#{AccountManageBean.errorMessage}" />
+                </div>
+            </h:panelGroup>
+            <h:panelGroup rendered="#{not empty AccountManageBean.successMessage}">
+                <div class="alert alert-success">
+                    <strong>Success!</strong> <h:outputText class="mx-2" value="#{AccountManageBean.successMessage}" />
+                </div>
+            </h:panelGroup>
+            <h:dataTable class="table" value="#{AccountManageBean.accounts}" var="account">
                 <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="username" />
-                    </f:facet>
-                    <h:outputText value="#{item.username}" />
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="fullname" />
-                    </f:facet>
-                    <h:outputText value="#{item.fullname}" />
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="age" />
-                    </f:facet>
-                    <h:outputText value="#{item.age}" />
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Action" />
-                    </f:facet>
-                    <h:form>
-                        <h:commandLink action="#{AccountManageBean.showFormEdit(item.username)}" value="update" class="btn btn-warning"/>
-                    </h:form>
-                </h:column>
-            </h:dataTable>
+			        <f:facet name="header">
+			            <h:outputText value="Select" />
+			        </f:facet>
+			        <h:selectBooleanCheckbox value="#{account.selected}">
+					    <f:ajax listener="#{AccountManageBean.updateSelectedStatus(account)}" render="@form" />
+					</h:selectBooleanCheckbox>
+
+			    </h:column>
+			    <h:column>
+			        <f:facet name="header">
+			            <h:outputText value="username" />
+			        </f:facet>
+			        <h:outputText value="#{account.username}" />
+			    </h:column>
+			    <h:column>
+			        <f:facet name="header">
+			            <h:outputText value="fullname" />
+			        </f:facet>
+			        <h:outputText value="#{account.fullname}" />
+			    </h:column>
+			    <h:column>
+			        <f:facet name="header">
+			            <h:outputText value="age" />
+			        </f:facet>
+			        <h:outputText value="#{account.age}" />
+			    </h:column>
+			    <h:column>
+			        <f:facet name="header">
+			            <h:outputText value="Action" />
+			        </f:facet>
+			        <h:form>
+			            <h:commandLink action="#{AccountManageBean.showFormEdit(account.username)}" value="update" class="btn btn-warning"/>
+			        </h:form>
+			    </h:column>
+			</h:dataTable>
+			            
         </f:view>
         <h:form>
-            <h:commandLink action="#{AccountManageBean.home}" class="btn btn-info" value="Back To Home" />
+            <h:commandLink action="#{AccountManageBean.home}" class="btn btn-info mb-5" value="Back To Home" />
         </h:form>
     </div>
-
+    
 </h:body>
 </html>

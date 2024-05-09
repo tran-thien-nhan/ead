@@ -11,4 +11,7 @@ public interface AccountSessionBeanLocal {
 	List<Account> ViewAll();
 	Account findOne(String username);
 	void Update(Account account);
+	void delete(Account account);
+	void updateSelectedStatus(Account account);
+	void deleteSelectedAccounts();
 }
