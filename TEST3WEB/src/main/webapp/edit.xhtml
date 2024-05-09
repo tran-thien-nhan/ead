@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	 xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<h:head>
+		<title>Update</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"></link>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	</h:head>
+	<title>SHOP MGMT</title>
+</h:head>
+<h:body>
+	<div class="container">
+		<h1>PRODUCT FORM UPDATE</h1>
+		<f:view>
+			<h:form>
+				<h:panelGroup rendered="#{not empty AccountManageBean.errorMessage}">
+					<div class="alert alert-danger">
+						<strong>Danger!</strong> <h:outputText class="mx-2" value="#{AccountManageBean.errorMessage}" />
+					</div>
+				</h:panelGroup>
+				<h:inputHidden value="#{AccountManageBean.account.username}" />
+				<div class="my-3">
+					<label class="form-label">Username</label>
+					<h:inputText class="form-control" value="#{AccountManageBean.account.username}"></h:inputText>
+				</div>
+				<div class="my-3">
+					<label class="form-label">Fullname</label>
+					<h:inputText class="form-control" value="#{AccountManageBean.account.fullname}"></h:inputText>
+				</div>
+				<div class="my-3">
+					<label class="form-label">Age</label>
+					<h:inputText class="form-control" value="#{AccountManageBean.account.age}"></h:inputText>
+				</div>
+				<h:commandButton action="${AccountManageBean.updateAccount}" value="Update" class="btn btn-success" />
+				<h:commandLink action="${AccountManageBean.home}" value="Back" class="btn btn-info mx-2" />
+				<h:commandLink action="${AccountManageBean.backToList}" value="Back To List" class="btn btn-warning" />
+			</h:form>
+		</f:view>
+	</div>
+
+</h:body>
+</html>
